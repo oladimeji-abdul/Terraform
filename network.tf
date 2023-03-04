@@ -101,4 +101,24 @@ resource "aws_security_group" "sg1" {
 
 }
 
+resource "aws_security_group" "sg2" {
+  name = "rsg2"
 
+  #enable HTTP access from anywhere
+  ingress {
+    from_port = 80
+    to_port   = 80
+    protocol  = "tcp"
+    cidr_blocks = [ var.aws_vpc_cidr ]
+  }
+
+#outbound rule definition
+  egress {
+
+    cidr_blocks = [ "0.0.0.0/0" ]
+    from_port = 0
+    protocol = "tcp"
+    to_port = 0
+  } 
+
+}

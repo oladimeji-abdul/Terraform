@@ -23,6 +23,13 @@ variable "aws_instance_sizes" {
   
 }
 
+variable "instance_type" {
+  type        = string
+  description = "Type for EC2 Instance"
+  default     = "t2.micro"
+}
+
+
 variable "aws_regions" {
     type = list(string)
     description = "this is a list of aws regions that can be referenced"
@@ -36,6 +43,7 @@ description = "cidr for the vpc"
 default = "10.0.0.0/16"
 
 }
+
 #variable "project_tags" {
 ##    description = "tag values"
  #   default = {
@@ -60,7 +68,7 @@ variable "project" {
 variable "aws_subnet_cidr" {
 type = list(string)
 description = "cidr for the vpc"
-default = ["10.0.10.0/24", "172.31.16.0/20"]
+default = ["10.0.10.0/24", "10.0.1.0/24"]
 
 }
 
