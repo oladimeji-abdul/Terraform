@@ -42,7 +42,7 @@ resource "aws_lb_target_group_attachment" "webtestattache" {
   port             = 80
 }
 
-resource "aws_lb_target_group_attachment" "webtestattache" {
+resource "aws_lb_target_group_attachment" "webtestattache2" {
   target_group_arn = aws_lb_target_group.webserver.arn
   target_id        = aws_instance.web-server2.id
   port             = 80

@@ -1,5 +1,9 @@
+data "aws_ssm_parameter" "ami" {
+  name = "/aws/service/ami-amazon-linux-latest/amzn2-ami-hvm-x86_64-gp2"
+}
+
 resource "aws_instance" "web-server1" {
-  ami                    = nonsensitive(data.aws_ssm.parameter.ami.value)
+  ami                    = nonsensitive(data.aws_ssm_parameter.ami.value)
   instance_type          = var.aws_instance_sizes.small
   subnet_id              = aws_subnet.dev-subnet-1
   vpc_security_group_ids = [aws_security_group.sg1.id]
